@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import FileUpload from './File-Upload';
+import Table from './Table';
+import Search from './Search';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleFileUpload = (jsonData) => {
+    setData(jsonData);
+  };
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const filteredData = data.filter(item =>
+    Object.values(item).some(val =>
+      String(val).toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Bikes Catalogue</h1>
+      <p>Choose a data file to upload.</p>
+      <FileUpload onFileUpload={handleFileUpload} />
+      <Search onSearch={handleSearch} />
+      <p>Click each header to sort by it.</p>
+      <Table data={filteredData} />  
     </div>
   );
-}
+};
 
 export default App;

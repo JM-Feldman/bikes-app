@@ -1,0 +1,36 @@
+.styled-table {
+    width: 100%;
+    max-width: 90%;  /* Adjust the max-width to control the table's width */
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .styled-table th, .styled-table td {
+    border: 1px solid #ddd;
+    padding: 8px;  /* Reduced padding for a more compact look */
+    text-align: left;
+  }
+  
+  .styled-table th {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+  
+  .styled-table th:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .styled-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .styled-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .styled-table th, .styled-table td {
+    text-align: left;
+    padding: 8px;  /* Ensuring consistent padding */
+  }
+  
+  
