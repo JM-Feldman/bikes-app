@@ -27,11 +27,16 @@ const App = () => {
       <h1>Bikes Catalogue</h1>
       <p>Choose a data file to upload.</p>
       <FileUpload onFileUpload={handleFileUpload} />
-      <Search onSearch={handleSearch} />
-      <p>Click each header to sort by it.</p>
+      {data.length > 0 && (
+        <>
+          <Search onSearch={handleSearch} />
+          <p>Click each header to sort by it.</p>
+        </>
+      )}
       <Table data={filteredData} />  
     </div>
   );
 };
 
 export default App;
+
